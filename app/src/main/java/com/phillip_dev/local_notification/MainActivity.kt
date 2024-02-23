@@ -16,6 +16,9 @@ class MainActivity : AppCompatActivity() {
         val view = appBinding.root
         setContentView(view)
 
+        appBinding.btnCount.setOnClickListener {
+
+        }
 
     }
 }
