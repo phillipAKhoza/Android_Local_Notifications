@@ -10,6 +10,7 @@ class MainActivity : AppCompatActivity() {
 
     lateinit var appBinding: ActivityMainBinding
     var counter =0
+    private  val CHANNEL_ID = "1"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         appBinding = ActivityMainBinding.inflate(layoutInflater)
