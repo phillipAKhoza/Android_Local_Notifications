@@ -19,6 +19,10 @@ class MainActivity : AppCompatActivity() {
         appBinding.btnCount.setOnClickListener {
             counter++
 
+            if( counter % 5 == 0){
+
+            }
+
         }
 
     }
