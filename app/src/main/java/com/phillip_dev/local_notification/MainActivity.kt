@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
 
         appBinding.btnCount.setOnClickListener {
             counter++
-
+                appBinding.btnCount.text = counter.toString()
             if( counter % 5 == 0){
                 sendNotification()
             }
