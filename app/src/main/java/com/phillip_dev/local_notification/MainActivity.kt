@@ -9,7 +9,7 @@ import java.util.zip.Inflater
 class MainActivity : AppCompatActivity() {
 
     lateinit var appBinding: ActivityMainBinding
-    val counter =0
+    var counter =0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         appBinding = ActivityMainBinding.inflate(layoutInflater)
@@ -17,6 +17,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(view)
 
         appBinding.btnCount.setOnClickListener {
+            counter++
 
         }
 
