@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    fun sendNotification(){
+    private fun sendNotification(){
 
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
 
