@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import androidx.core.app.NotificationCompat
+import androidx.core.app.NotificationManagerCompat
 import com.phillip_dev.local_notification.databinding.ActivityMainBinding
 import java.util.zip.Inflater
 
@@ -51,8 +52,9 @@ class MainActivity : AppCompatActivity() {
                 .setContentText("You have add 5 to the counter")
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT)
 
-
         }
+        val notificationManagerCompat = NotificationManagerCompat.from(this@MainActivity)
+        notificationManagerCompat.notify(1,builder.build())
 
     }
 }
