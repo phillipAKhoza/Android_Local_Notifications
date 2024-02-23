@@ -20,10 +20,15 @@ class MainActivity : AppCompatActivity() {
             counter++
 
             if( counter % 5 == 0){
-
+                sendNotification()
             }
 
         }
+
+    }
+
+    fun sendNotification(){
+
 
     }
 }
