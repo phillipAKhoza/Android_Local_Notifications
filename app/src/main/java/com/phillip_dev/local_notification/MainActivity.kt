@@ -45,6 +45,13 @@ class MainActivity : AppCompatActivity() {
             builder.setSmallIcon(R.drawable.notification_icon)
                     .setContentTitle("Notification")
                     .setContentText("You have add 5 to the counter")
+        }else{
+            builder.setSmallIcon(R.drawable.notification_icon)
+                .setContentTitle("Notification")
+                .setContentText("You have add 5 to the counter")
+                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+
+
         }
 
     }
