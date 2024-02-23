@@ -1,12 +1,16 @@
 package com.phillip_dev.local_notification
 
+import android.Manifest
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.content.Context
+import android.content.pm.PackageManager
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import androidx.annotation.RequiresApi
+import androidx.core.app.ActivityCompat
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import com.phillip_dev.local_notification.databinding.ActivityMainBinding
@@ -27,7 +31,8 @@ class MainActivity : AppCompatActivity() {
             counter++
                 appBinding.btnCount.text = counter.toString()
             if( counter % 5 == 0){
-                sendNotification()
+
+                    sendNotification()
             }
 
         }
@@ -54,7 +59,25 @@ class MainActivity : AppCompatActivity() {
 
         }
         val notificationManagerCompat = NotificationManagerCompat.from(this@MainActivity)
-        notificationManagerCompat.notify(1,builder.build())
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED
+        ) {
+            ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.POST_NOTIFICATIONS),1)
+        }else {
+            notificationManagerCompat.notify(1, builder.build())
+        }
 
     }
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+
+        if(requestCode == 1 && grantResults.size > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
+
+        }
+    }
+
 }
