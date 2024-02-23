@@ -9,11 +9,13 @@ import java.util.zip.Inflater
 class MainActivity : AppCompatActivity() {
 
     lateinit var appBinding: ActivityMainBinding
-    lateinit var count: Button
+    val counter =0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         appBinding = ActivityMainBinding.inflate(layoutInflater)
         val view = appBinding.root
         setContentView(view)
+
+
     }
 }
