@@ -1,5 +1,8 @@
 package com.phillip_dev.local_notification
 
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -30,6 +33,12 @@ class MainActivity : AppCompatActivity() {
 
     fun sendNotification(){
 
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
+
+            val chanenl = NotificationChannel(CHANNEL_ID,"1",NotificationManager.IMPORTANCE_DEFAULT)
+
+
+        }
 
     }
 }
