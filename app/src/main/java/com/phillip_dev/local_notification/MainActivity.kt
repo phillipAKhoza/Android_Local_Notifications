@@ -54,7 +54,11 @@ class MainActivity : AppCompatActivity() {
 
                 val intent = Intent(applicationContext, NotificationReceiver::class.java)
 
-                val pendingIntent = PendingIntent.getBroadcast(applicationContext,1,intent,PendingIntent.FLAG_UPDATE_CURRENT)
+                val pendingIntent = if(Build.VERSION.SDK_INT >= 23){
+                PendingIntent.getBroadcast(applicationContext,1,intent,PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE)
+                }else{
+                    PendingIntent.getBroadcast(applicationContext,1,intent,PendingIntent.FLAG_UPDATE_CURRENT )
+                }
 
             }
 
