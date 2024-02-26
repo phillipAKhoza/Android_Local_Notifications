@@ -13,6 +13,8 @@ import androidx.annotation.RequiresApi
 import androidx.core.app.ActivityCompat
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
+import com.google.android.material.timepicker.MaterialTimePicker
+import com.google.android.material.timepicker.TimeFormat
 import com.phillip_dev.local_notification.databinding.ActivityMainBinding
 import java.util.Calendar
 import java.util.zip.Inflater
@@ -27,13 +29,24 @@ class MainActivity : AppCompatActivity() {
         appBinding = ActivityMainBinding.inflate(layoutInflater)
         val view = appBinding.root
         setContentView(view)
+        val calender = Calendar.getInstance()
+        val currentHour = calender.get(Calendar.HOUR_OF_DAY)
+        val currentMinutes = calender.get(Calendar.MINUTE)
 
         appBinding.btnCount.setOnClickListener {
 
+            val timePicker = MaterialTimePicker.Builder()
+                .setTimeFormat(TimeFormat.CLOCK_12H)
+                .setHour(currentHour)
+                .setMinute(currentMinutes)
+                .setTitleText("Set Notification Time")
+                .build()
+
+            timePicker.show(supportFragmentManager,"1")
 
         }
 
-        val calender = Calendar.getInstance()
+
         calender.set(Calendar.HOUR_OF_DAY,11)
 
     }
