@@ -28,45 +28,13 @@ class MainActivity : AppCompatActivity() {
         setContentView(view)
 
         appBinding.btnCount.setOnClickListener {
-            counter++
-                appBinding.btnCount.text = counter.toString()
-            if( counter % 5 == 0){
 
-                    sendNotification()
-            }
 
         }
 
     }
 
-    private fun sendNotification(){
 
-        val builder = NotificationCompat.Builder(this@MainActivity,CHANNEL_ID)
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
-
-            val chanel = NotificationChannel(CHANNEL_ID,"1",NotificationManager.IMPORTANCE_DEFAULT)
-            val manager : NotificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-            manager.createNotificationChannel(chanel)
-
-            builder.setSmallIcon(R.drawable.notification_icon)
-                    .setContentTitle("Notification")
-                    .setContentText("You have add 5 to the counter")
-        }else{
-            builder.setSmallIcon(R.drawable.notification_icon)
-                .setContentTitle("Notification")
-                .setContentText("You have add 5 to the counter")
-                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-
-        }
-        val notificationManagerCompat = NotificationManagerCompat.from(this@MainActivity)
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED
-        ) {
-            ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.POST_NOTIFICATIONS),1)
-        }else {
-            notificationManagerCompat.notify(1, builder.build())
-        }
-
-    }
 
     override fun onRequestPermissionsResult(
         requestCode: Int,
