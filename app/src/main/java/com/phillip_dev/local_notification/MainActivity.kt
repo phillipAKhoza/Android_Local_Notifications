@@ -1,6 +1,7 @@
 package com.phillip_dev.local_notification
 
 import android.Manifest
+import android.app.AlarmManager
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.PendingIntent
@@ -15,6 +16,7 @@ import androidx.annotation.RequiresApi
 import androidx.core.app.ActivityCompat
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
+import androidx.core.content.getSystemService
 import com.google.android.material.timepicker.MaterialTimePicker
 import com.google.android.material.timepicker.TimeFormat
 import com.phillip_dev.local_notification.databinding.ActivityMainBinding
@@ -60,6 +62,8 @@ class MainActivity : AppCompatActivity() {
                     PendingIntent.getBroadcast(applicationContext,1,intent,PendingIntent.FLAG_UPDATE_CURRENT )
                 }
 
+                val alarmManager : AlarmManager = getSystemService(Context.ALARM_SERVICE) as AlarmManager
+                alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP)
             }
 
         }
