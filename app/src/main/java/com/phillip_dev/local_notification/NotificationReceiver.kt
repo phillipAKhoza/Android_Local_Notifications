@@ -12,7 +12,6 @@ import android.os.Build
 import androidx.core.app.ActivityCompat
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
-import androidx.core.content.getSystemService
 
 class NotificationReceiver : BroadcastReceiver() {
     private  val CHANNEL_ID = "1"
