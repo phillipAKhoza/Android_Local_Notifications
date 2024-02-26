@@ -63,7 +63,7 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 val alarmManager : AlarmManager = getSystemService(Context.ALARM_SERVICE) as AlarmManager
-                alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP)
+                alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP,calender.timeInMillis,AlarmManager.INTERVAL_DAY,)
             }
 
         }
