@@ -4,6 +4,7 @@ import android.Manifest
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.content.Context
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
@@ -49,6 +50,8 @@ class MainActivity : AppCompatActivity() {
                 calender.set(Calendar.MINUTE,timePicker.minute)
                 calender.set(Calendar.SECOND,0)
                 calender.set(Calendar.MILLISECOND,0)
+
+                val intent = Intent(applicationContext, NotificationReceiver::class.java)
 
             }
 
