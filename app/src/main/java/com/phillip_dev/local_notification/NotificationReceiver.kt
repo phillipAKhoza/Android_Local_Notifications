@@ -26,11 +26,11 @@ class NotificationReceiver : BroadcastReceiver() {
 
                 builder.setSmallIcon(R.drawable.notification_icon)
                     .setContentTitle("Notification")
-                    .setContentText("You have add 5 to the counter")
+                    .setContentText("This is your set reminder")
             }else{
                 builder.setSmallIcon(R.drawable.notification_icon)
                     .setContentTitle("Notification")
-                    .setContentText("You have add 5 to the counter")
+                    .setContentText("This is your set reminder")
                     .setPriority(NotificationCompat.PRIORITY_DEFAULT)
 
             }
