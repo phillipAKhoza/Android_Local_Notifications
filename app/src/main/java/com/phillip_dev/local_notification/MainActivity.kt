@@ -44,12 +44,14 @@ class MainActivity : AppCompatActivity() {
 
             timePicker.show(supportFragmentManager,"1")
 
-            timePicker.addOnPositiveButtonClickListener {  }
+            timePicker.addOnPositiveButtonClickListener {
+                calender.set(Calendar.HOUR_OF_DAY,timePicker.hour)
+
+            }
 
         }
 
 
-        calender.set(Calendar.HOUR_OF_DAY,11)
 
     }
 
