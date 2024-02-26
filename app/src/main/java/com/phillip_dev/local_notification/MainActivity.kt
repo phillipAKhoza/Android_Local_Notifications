@@ -46,6 +46,9 @@ class MainActivity : AppCompatActivity() {
 
             timePicker.addOnPositiveButtonClickListener {
                 calender.set(Calendar.HOUR_OF_DAY,timePicker.hour)
+                calender.set(Calendar.MINUTE,timePicker.minute)
+                calender.set(Calendar.SECOND,0)
+                calender.set(Calendar.MILLISECOND,0)
 
             }
 
