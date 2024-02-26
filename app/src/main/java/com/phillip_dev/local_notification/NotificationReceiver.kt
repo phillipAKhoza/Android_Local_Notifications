@@ -38,9 +38,8 @@ class NotificationReceiver : BroadcastReceiver() {
             if (ActivityCompat.checkSelfPermission(context, Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED
             ) {
                 ActivityCompat.requestPermissions(context as Activity, arrayOf(Manifest.permission.POST_NOTIFICATIONS),1)
-            }else {
-                notificationManagerCompat.notify(1, builder.build())
             }
+            notificationManagerCompat.notify(1, builder.build())
         }
     }
 }
