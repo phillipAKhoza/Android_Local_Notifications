@@ -3,6 +3,7 @@ package com.phillip_dev.local_notification
 import android.Manifest
 import android.app.NotificationChannel
 import android.app.NotificationManager
+import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -52,6 +53,8 @@ class MainActivity : AppCompatActivity() {
                 calender.set(Calendar.MILLISECOND,0)
 
                 val intent = Intent(applicationContext, NotificationReceiver::class.java)
+
+                val pendingIntent = PendingIntent.getBroadcast(applicationContext,1,intent,PendingIntent.FLAG_UPDATE_CURRENT)
 
             }
 
