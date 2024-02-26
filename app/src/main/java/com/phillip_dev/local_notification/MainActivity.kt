@@ -14,6 +14,7 @@ import androidx.core.app.ActivityCompat
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import com.phillip_dev.local_notification.databinding.ActivityMainBinding
+import java.util.Calendar
 import java.util.zip.Inflater
 
 class MainActivity : AppCompatActivity() {
@@ -31,6 +32,9 @@ class MainActivity : AppCompatActivity() {
 
 
         }
+
+        val calender = Calendar.getInstance()
+        calender.set(Calendar.HOUR_OF_DAY,11)
 
     }
 
