@@ -44,6 +44,8 @@ class MainActivity : AppCompatActivity() {
 
             timePicker.show(supportFragmentManager,"1")
 
+            timePicker.addOnPositiveButtonClickListener {  }
+
         }
 
 
