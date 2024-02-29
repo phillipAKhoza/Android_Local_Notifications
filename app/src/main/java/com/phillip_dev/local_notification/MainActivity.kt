@@ -63,7 +63,7 @@ class MainActivity : AppCompatActivity() {
 
         //CancelButton
         val cancelIntent = Intent(applicationContext,CancelReceiver::class.java)
-        val pendingActionIntent = if(Build.VERSION.SDK_INT >=23){
+        val pendingCancelIntent = if(Build.VERSION.SDK_INT >=23){
             PendingIntent.getBroadcast(applicationContext,3,actionIntent, PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE)
         }else{
             PendingIntent.getBroadcast(applicationContext,3,actionIntent, PendingIntent.FLAG_UPDATE_CURRENT)
