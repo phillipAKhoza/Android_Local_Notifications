@@ -9,6 +9,7 @@ class CancelReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context?, intent: Intent?) {
         context?.let {
             val notificationManagerCompat = NotificationManagerCompat.from(it)
+            notificationManagerCompat.cancel(1,)
         }
     }
 }
