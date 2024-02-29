@@ -44,7 +44,12 @@ class MainActivity : AppCompatActivity() {
     private fun sendNotification(){
 
         val intent = Intent(applicationContext,MainActivity::class.java)
-        val pendingIntent = PendingIntent.getActivity(applicationContext,2,intent, PendingIntent.FLAG_UPDATE_CURRENT)
+        val pendingIntent = if(Build.VERSION.SDK_INT >=23){
+            PendingIntent.getActivity(applicationContext,2,intent, PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE)
+        }else{
+            PendingIntent.getActivity(applicationContext,2,intent, PendingIntent.FLAG_UPDATE_CURRENT)
+
+        }
 
         val builder = NotificationCompat.Builder(this@MainActivity,CHANNEL_ID)
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
