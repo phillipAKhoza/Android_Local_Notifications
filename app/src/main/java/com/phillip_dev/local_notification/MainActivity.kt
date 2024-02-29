@@ -92,6 +92,9 @@ class MainActivity : AppCompatActivity() {
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT)
                 .setContentIntent(pendingIntent)
                 .setAutoCancel(true)
+                .addAction(R.drawable.notification_icon,"Toast Message",pendingActionIntent)
+                .addAction(R.drawable.notification_icon,"Cancel",pendingCancelIntent)
+
 
         }
         val notificationManagerCompat = NotificationManagerCompat.from(this@MainActivity)
