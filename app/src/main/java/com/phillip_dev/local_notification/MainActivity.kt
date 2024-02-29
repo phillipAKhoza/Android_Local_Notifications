@@ -54,7 +54,7 @@ class MainActivity : AppCompatActivity() {
         //ActionButton
         val actionIntent = Intent(applicationContext,MainActivity::class.java)
         val pendingActionIntent = if(Build.VERSION.SDK_INT >=23){
-            PendingIntent.getActivity(applicationContext,2,intent, PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE)
+            PendingIntent.getBroadcast(applicationContext,2,intent, PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE)
         }else{
             PendingIntent.getActivity(applicationContext,2,intent, PendingIntent.FLAG_UPDATE_CURRENT)
 
