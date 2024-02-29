@@ -4,6 +4,7 @@ import android.Manifest
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.content.Context
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
@@ -40,6 +41,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun sendNotification(){
+
+        val intent = Intent(applicationContext,MainActivity::class.java)
 
         val builder = NotificationCompat.Builder(this@MainActivity,CHANNEL_ID)
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
