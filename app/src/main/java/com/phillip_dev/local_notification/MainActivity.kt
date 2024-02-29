@@ -73,7 +73,7 @@ class MainActivity : AppCompatActivity() {
                     .setContentText("You have add 5 to the counter")
                     .setContentIntent(pendingIntent)
                     .setAutoCancel(true)
-                    .addAction("Toast Message", actionIntent)
+                    .addAction(R.drawable.notification_icon,"Toast Message",pendingActionIntent)
         }else{
             builder.setSmallIcon(R.drawable.notification_icon)
                 .setContentTitle("Notification")
