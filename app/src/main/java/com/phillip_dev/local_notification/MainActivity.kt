@@ -61,6 +61,7 @@ class MainActivity : AppCompatActivity() {
             builder.setSmallIcon(R.drawable.notification_icon)
                     .setContentTitle("Notification")
                     .setContentText("You have add 5 to the counter")
+                    .setContentIntent(pendingIntent)
         }else{
             builder.setSmallIcon(R.drawable.notification_icon)
                 .setContentTitle("Notification")
