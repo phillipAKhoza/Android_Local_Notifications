@@ -68,6 +68,8 @@ class MainActivity : AppCompatActivity() {
                 .setContentTitle("Notification")
                 .setContentText("You have add 5 to the counter")
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                .setContentIntent(pendingIntent)
+                .setAutoCancel(true)
 
         }
         val notificationManagerCompat = NotificationManagerCompat.from(this@MainActivity)
