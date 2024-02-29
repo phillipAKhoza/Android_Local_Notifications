@@ -56,11 +56,24 @@ class MainActivity : AppCompatActivity() {
 
                 val intent = Intent(applicationContext, NotificationReceiver::class.java)
 
+
+        val intent = Intent(applicationContext,MainActivity::class.java)
+        val pendingIntent = if(Build.VERSION.SDK_INT >=23){
+            PendingIntent.getActivity(applicationContext,2,intent, PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE)
+        }else{
+            PendingIntent.getActivity(applicationContext,2,intent, PendingIntent.FLAG_UPDATE_CURRENT)
+
+        }
+
+        val builder = NotificationCompat.Builder(this@MainActivity,CHANNEL_ID)
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
+
                 val pendingIntent = if(Build.VERSION.SDK_INT >= 23){
                 PendingIntent.getBroadcast(applicationContext,1,intent,PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE)
                 }else{
                     PendingIntent.getBroadcast(applicationContext,1,intent,PendingIntent.FLAG_UPDATE_CURRENT )
                 }
+
 
                 val alarmManager : AlarmManager = getSystemService(Context.ALARM_SERVICE) as AlarmManager
                 alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP,calender.timeInMillis,AlarmManager.INTERVAL_DAY,pendingIntent)
@@ -77,38 +90,38 @@ class MainActivity : AppCompatActivity() {
 
 
 
-//    override fun onRequestPermissionsResult(
-//        requestCode: Int,
-//        permissions: Array<out String>,
-//        grantResults: IntArray
-//    ) {
-//        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-//
-//        if(requestCode == 1 && grantResults.size > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
-//            val builder = NotificationCompat.Builder(this@MainActivity,CHANNEL_ID)
-//            if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
-//
-//                val chanel = NotificationChannel(CHANNEL_ID,"1",NotificationManager.IMPORTANCE_DEFAULT)
-//                val manager : NotificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-//                manager.createNotificationChannel(chanel)
-//
-//                builder.setSmallIcon(R.drawable.notification_icon)
-//                    .setContentTitle("Notification")
-//                    .setContentText("You have add 5 to the counter")
-//            }else{
-//                builder.setSmallIcon(R.drawable.notification_icon)
-//                    .setContentTitle("Notification")
-//                    .setContentText("You have add 5 to the counter")
-//                    .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-//
-//            }
-//            val notificationManagerCompat = NotificationManagerCompat.from(this@MainActivity)
-//            if (ActivityCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED
-//            ) {
-//
-//            }
-//            notificationManagerCompat.notify(1, builder.build())
-//        }
-//    }
-//
-//}
+   override fun onRequestPermissionsResult(
+       requestCode: Int,
+       permissions: Array<out String>,
+       grantResults: IntArray
+   ) {
+       super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+
+       if(requestCode == 1 && grantResults.size > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
+           val builder = NotificationCompat.Builder(this@MainActivity,CHANNEL_ID)
+           if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
+
+               val chanel = NotificationChannel(CHANNEL_ID,"1",NotificationManager.IMPORTANCE_DEFAULT)
+               val manager : NotificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+               manager.createNotificationChannel(chanel)
+
+               builder.setSmallIcon(R.drawable.notification_icon)
+                   .setContentTitle("Notification")
+                   .setContentText("You have add 5 to the counter")
+           }else{
+               builder.setSmallIcon(R.drawable.notification_icon)
+                   .setContentTitle("Notification")
+                   .setContentText("You have add 5 to the counter")
+                   .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+
+           }
+           val notificationManagerCompat = NotificationManagerCompat.from(this@MainActivity)
+           if (ActivityCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED
+           ) {
+
+           }
+           notificationManagerCompat.notify(1, builder.build())
+       }
+   }
+
+}
