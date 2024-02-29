@@ -23,6 +23,7 @@
             </intent-filter>
         </activity>
         <receiver android:name=".ActionReceiver"/>
+        <receiver android:name=".CancelReceiver"/>
     </application>
 
 </manifest>
