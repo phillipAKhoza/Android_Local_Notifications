@@ -3,6 +3,7 @@ package com.phillip_dev.local_notification
 import android.Manifest
 import android.app.NotificationChannel
 import android.app.NotificationManager
+import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -43,6 +44,7 @@ class MainActivity : AppCompatActivity() {
     private fun sendNotification(){
 
         val intent = Intent(applicationContext,MainActivity::class.java)
+        val pendingIntent = PendingIntent.getActivity(applicationContext,2,intent, PendingIntent.FLAG_UPDATE_CURRENT)
 
         val builder = NotificationCompat.Builder(this@MainActivity,CHANNEL_ID)
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
