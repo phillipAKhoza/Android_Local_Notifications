@@ -66,7 +66,7 @@ class MainActivity : AppCompatActivity() {
         val pendingCancelIntent = if(Build.VERSION.SDK_INT >=23){
             PendingIntent.getBroadcast(applicationContext,4,cancelIntent, PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE)
         }else{
-            PendingIntent.getBroadcast(applicationContext,3,actionIntent, PendingIntent.FLAG_UPDATE_CURRENT)
+            PendingIntent.getBroadcast(applicationContext,4,cancelIntent, PendingIntent.FLAG_UPDATE_CURRENT)
 
         }
 
