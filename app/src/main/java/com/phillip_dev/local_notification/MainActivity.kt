@@ -83,6 +83,8 @@ class MainActivity : AppCompatActivity() {
                     .setContentIntent(pendingIntent)
                     .setAutoCancel(true)
                     .addAction(R.drawable.notification_icon,"Toast Message",pendingActionIntent)
+                    .addAction(R.drawable.notification_icon,"Cancel",pendingCancelIntent)
+
         }else{
             builder.setSmallIcon(R.drawable.notification_icon)
                 .setContentTitle("Notification")
