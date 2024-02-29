@@ -53,6 +53,7 @@ class MainActivity : AppCompatActivity() {
 
         //ActionButton
         val actionIntent = Intent(applicationContext,ActionReceiver::class.java)
+        actionIntent.putExtra("toast","This is a Notification Message")
         val pendingActionIntent = if(Build.VERSION.SDK_INT >=23){
             PendingIntent.getBroadcast(applicationContext,3,actionIntent, PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE)
         }else{
